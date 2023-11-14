@@ -22,6 +22,13 @@ namespace Discount.API.Controllers
             var coupon = await _repository.GetDiscount(productName);
             return Ok(coupon);
         }
+        [HttpGet("dania/{productName}", Name = "GetDaniaDiscount")]
+        [ProducesResponseType(typeof(Coupon), (int)HttpStatusCode.OK)]
+        public async Task<ActionResult<Coupon>> GetDaniaDiscount(string productName)
+        {
+            var coupon = await _repository.GetDiscount(productName);
+            return Ok(coupon);
+        }
         [HttpPost]
         [ProducesResponseType(typeof(Coupon), (int)HttpStatusCode.OK)]
         public async Task<ActionResult<Coupon>> CreateDiscount([FromBody] Coupon coupon)
